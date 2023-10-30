@@ -1,0 +1,40 @@
+<div mat-dialog-title>
+    <h1>Currency Form</h1>
+</div>
+<form [formGroup]="currForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input matInput type="text" name="name" [(ngModel)]="initialData.currency.name" placeholder="Currency" formControlName="name">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Rate</mat-label>
+                <input matInput placeholder="Rate" name="rate" [(ngModel)]="initialData.currency.rate" formControlName="rate">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-radio-group aria-label="Select an option" name="active" [(ngModel)]="initialData.currency.active" formControlName="active">
+                <mat-label><b>State</b></mat-label>
+                <mat-radio-button value="true">active</mat-radio-button>
+                <mat-radio-button value="false">inactive</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Symbol</mat-label>
+                <mat-select formControlName="symbol" name="symbol" [(ngModel)]="initialData.currency.symbol">
+                    <mat-option *ngFor="let val of Symbol" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+          
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button class="labelclass" mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button class="labelclass" mat-raised-button color="primary" type="submit" *ngIf="datad==null">Save</button>
+        <button class="labelclass" mat-raised-button color="primary" type="submit" *ngIf="datad!=null">Update</button>
+    </div>
+</form>

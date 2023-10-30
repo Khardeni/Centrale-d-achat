@@ -1,0 +1,29 @@
+
+.tr,.td{
+  padding: 10px;
+  color: #000;
+  justify-content: center;
+  text-align: center;
+  justify-items: center;
+}
+.name{
+    column-width: 350px;
+}
+.number{
+    column-width: 140px;
+}
+h1{
+  text-align: center;
+  color: #000;
+  font-size: 24px;
+}
+
+a{
+  text-decoration: none;
+}
+a:visited{
+  text-decoration: none;
+}
+.modal{
+  color:black;
+}

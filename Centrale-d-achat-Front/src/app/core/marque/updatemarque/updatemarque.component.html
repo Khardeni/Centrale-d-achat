@@ -1,0 +1,12 @@
+<div class="form-container">
+<h2>Update Marque</h2>
+<form>
+  
+  <div>
+    <label for="nom">Nom:</label>
+    <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="marque.nomMarque">
+  </div>
+  
+  <button type="button" (click)="updateMarque()">Update</button>
+</form>
+</div>

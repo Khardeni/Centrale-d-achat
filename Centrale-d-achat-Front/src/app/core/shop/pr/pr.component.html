@@ -1,0 +1,82 @@
+<div class="product-box">
+  <h2>
+    Nos Produits
+   </h2>
+  <div class="row row-cols-1 row-cols-md-4">
+    <div class="col mb-4"  *ngFor="let produit of listProduits">
+      <div class="card">
+        <img src="{{ produit.imagee }}" class="card-img-top" alt="{{produit.nomArticle}}" width="150" height="150">
+        <div class="card-body">
+          <div class="card-text">
+            <div class="detail-box">
+              <div class="text">
+                <div class="h6">
+                  {{produit.nomArticle }}
+                </div>
+                <h5>
+                  <span>{{symbol}}</span> {{produit.prixHT.toFixed(2)}}
+                </h5>
+              </div>
+              <div class="like">
+                <div class="h6">
+                  Like
+                </div>
+                <div class="star_container">
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <!-- <i class="fa fa-star" aria-hidden="true"></i> -->
+                </div>
+              </div>
+            </div>
+            <div class="btn-box">
+              <a class="a_href" >
+                <button type="button" (click)="displayModal(produit)" id="modal-btn" class="btn btn-warning">
+                  Launch demo modal
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="add-lp-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ajouter au Panier</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" (click)="closeModal()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="parent">
+          <div class="div1">
+            <img src="{{product.imagee}}" height="150" width="180">
+          </div>
+          <div class="div2">
+            <b>{{product.nomArticle}}</b><br>
+            {{product.prixHT.toFixed(2)}} {{symbol}}<br><br><br><br><br>
+            <button (click)="decrease()">-</button>
+              <input type="number" id="quantite" class="quantite-input" [(ngModel)]="quantite" name="quantite">
+            <button (click)="increase()">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Annuler</button>
+        <button type="button" class="btn btn-primary" (click)="saveToLP(product.articleId)">Ajouter Au Panier</button>
+      </div>
+    </div>
+  </div>
+</div>
+

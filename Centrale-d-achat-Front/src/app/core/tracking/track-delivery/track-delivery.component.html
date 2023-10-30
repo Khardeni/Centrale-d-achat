@@ -1,0 +1,34 @@
+<div class="track_container" id="track_container">
+  <div class="search_txt">
+    Track your delivery by typing your Order number or Invoice number or Username
+  </div>
+  <input type="text" name="search" class="track_search_box" [(ngModel)]="trackValue">
+  <button (click)="trackDelivery()" class="search_btn">Track</button>
+  <div class="result_table" id="result_table">
+    <table>
+      <tr class="table_head">
+        <td>Customer Name</td>
+        <td>Shipping Adress</td>
+        <td>Planned Shipping Date</td>
+        <td>Shipping Date</td>
+        <td>Delivered In</td>
+        <td>Delivery Agent Details</td>
+      </tr>
+      <tr>
+        <td>{{dto.nomPrenom}}</td>
+        <td>{{dto.adresseLivraison}}</td>
+        <td>{{dto.dateLivraisonPrevue}}</td>
+        <td *ngIf="dto.dateEnvoi==null">En cours de Traitement..</td>
+        <td *ngIf="dto.dateEnvoi!=null">{{dto.dateEnvoi}}</td>
+        <td *ngIf="dto.dateLivraison!=null">{{dto.dateLivraison}}</td>
+        <td *ngIf="dto.dateLivraison==null">En cours de Traitement..</td>
+        <td *ngIf="dto.livreur==null">En cours de Traitement..</td>
+        <td *ngIf="dto.livreur!=null">{{dto.livreur}}</td>
+      </tr>
+    </table>
+  </div>
+  
+  <div class="error_message" id="error_message">
+  </div>
+
+</div>

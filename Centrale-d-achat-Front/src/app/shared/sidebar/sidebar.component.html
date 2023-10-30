@@ -1,0 +1,90 @@
+<!-- <div id="mySidenav" class="sidenav" style="width: 60px;">
+    <a href="#"><fa-icon [icon]=userIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text1">Profile</div></a>
+    <a href="#"><fa-icon [icon]=commandeIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text2">Commandes</div></a>
+    <a [routerLink]="['tracking']"><fa-icon [icon]=searchIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text6">Track</div></a>
+    <a [routerLink]="['health']"><fa-icon [icon]=healthIcon style="padding-right:15px;"></fa-icon><div class="sidenav_text" id="sidenav_text6">APP Health</div></a>
+  </div>
+
+<button class="sidenav_btn" id="sidenav_btn" (click)="openNav()">&#9776;</button> -->
+
+<nav id="sidebar" class="sidebar js-sidebar">
+  <div class="sidebar-content js-simplebar">
+    <a class="sidebar-brand" [routerLink]="['dashboard']">
+      <span class="align-middle">E-Spare</span>
+    </a>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-header">
+        Pages
+      </li>
+
+      <li class="sidebar-item" id="dash_element">
+        <a class="sidebar-link" [routerLink]="['dashboard']">
+          <fa-icon [icon]=dashIcon style="padding-right:15px;"></fa-icon> <span class="align-middle">Dashboard</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" id="delivery_element">
+        <a class="sidebar-link" [routerLink]="['delivery']">
+          <fa-icon [icon]=deliveryIcon style="padding-right:15px;"></fa-icon> <span class="align-middle">Deliveries</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item"  id="fact_element">
+        <a class="sidebar-link" [routerLink]="['facture']">
+          <fa-icon [icon]=factureIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Invoices</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" id="paiement_element">
+        <a class="sidebar-link" [routerLink]="['paiement']">
+          <fa-icon [icon]=paiementIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Payments</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" id="produit_element">
+        <a class="sidebar-link" [routerLink]="['produits']">
+          <fa-icon [icon]=produitIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Produit</span>
+        </a>
+      </li>
+
+      <li class="sidebar-header">
+        Tools & Components
+      </li>
+
+      <li class="sidebar-item" id="emplacement_element">
+        <a class="sidebar-link" [routerLink]="['emplacement']">
+          <fa-icon [icon]=empIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Emplacements</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" id="dept_element">
+        <a class="sidebar-link" [routerLink]="['departement']">
+          <fa-icon [icon]=depIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Departements</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" id="currency_element">
+        <a class="sidebar-link" [routerLink]="['currency']">
+          <fa-icon [icon]=currencyIcon style="padding-right:15px;"></fa-icon><span class="align-middle">Currencies</span>
+        </a>
+      </li>
+
+      <li class="sidebar-item" id="user_element">
+        <a class="sidebar-link" [routerLink]="['admin']">
+          <fa-icon [icon]=iconUser style="padding-right:15px;"></fa-icon><span class="align-middle">User</span>
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+</nav>
+
+
+
+
+<script>
+  feather.replace()
+</script>
+

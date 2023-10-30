@@ -1,0 +1,193 @@
+<div class="component_body">
+<h1>List deliveries</h1>
+<!-- <table border='1' class="table">
+  <tr class="tr">
+    <td class="td number">delivery N</td>
+    <td class="td number">Commande</td>
+    <td class="td number">Emplacement Origine</td>
+    <td class="td number">Numéro Client</td>
+    <td class="td number">Date d'envoi</td>
+    <td class="td number">Date Livraison Prévu</td>
+    <td class="td number">Date Livraison</td>
+    <td class="td number">Type Livraison</td>
+    <td class="td number">Adresse de Livraison</td>
+    <td class="td number">Etat</td>
+    <td class="td btn"></td>
+  </tr>
+  <tr *ngFor="let delivery of detailedList; let ind= index"  class="tr">
+
+    <td class="td number">{{delivery.livraisonId}}</td>
+    <td class="td number"><a routerLink="/facture/detail/{{delivery.factureId}}">{{delivery.factureId}}</a></td>
+    <td class="td number">{{delivery.emplacementOrigine}}</td>
+    <td class="td number">{{delivery.numTelReception}}</td>
+    <td class="td number" *ngIf="delivery.dateEnvoi==null">En cours de traitement..</td>
+    <td class="td number" *ngIf="delivery.dateEnvoi!=null">{{delivery.dateEnvoi}}</td>
+    <td class="td number">{{delivery.dateLivraisonPrevu}}</td>
+    <td class="td number" *ngIf="delivery.dateLivraison==null">En cours de traitement..</td>
+    <td class="td number" *ngIf="delivery.dateLivraison!=null">{{delivery.dateLivraison}}</td>
+    <td class="td number" *ngIf="delivery.typeLivraison==1">Basique</td>
+    <td class="td number" *ngIf="delivery.typeLivraison==2">Enlevement Inclus</td>
+    <td class="td number" *ngIf="delivery.typeLivraison==3">Urgente</td>
+    <td class="td number">{{delivery.adresseLivraison}}</td>
+    <td class="td number" style="color:red; font-weight: 700" *ngIf="delivery.etatLivraison==-1">Annulée</td>
+    <td class="td number" style="color:green; font-weight: 700" *ngIf="delivery.etatLivraison==0">Confirmé</td>
+    <td class="td btn">
+      <div *ngIf="delivery.dateEnvoi==null">
+        <button  type="button" class="btn_modal" id="modal_btn" (click)="displayModal(delivery.livraisonId)">Assigner Livreur</button>
+      </div>
+      <div *ngIf="delivery.dateLivraison==null && delivery.dateEnvoi!=null">
+        <button  type="button" class="btn_modal" id="modal_btn" (click)="setShipped(delivery.livraisonId)" style="font-size:11px!important;">Changer Etat à livrée</button>
+      </div>
+    </td> -->
+
+    <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+    <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+    <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+    -->
+  <!-- </tr>
+</table> -->
+
+
+
+<div class="col-12 col-lg-8 col-xxl-11 d-flex">
+  <div class="card flex-fill">
+    <div class="card-header">
+
+      <h5 class="card-title mb-0">Latest Projects</h5>
+    </div>
+    <table class="table table-hover my-0">
+      <thead>
+        <tr>
+          <td class="td number">delivery N</td>
+          <td class="td number">Commande</td>
+          <td class="td number">Emplacement Origine</td>
+          <td class="td number">Numéro Client</td>
+          <td class="td number">Date d'envoi</td>
+          <td class="td number">Date Livraison Prévu</td>
+          <td class="td number">Date Livraison</td>
+          <td class="td number">Type Livraison</td>
+          <td class="td number">Adresse de Livraison</td>
+          <td class="td number">Etat</td>
+          <td class="td number">Action</td>
+        </tr>
+      </thead>
+      <tbody>
+
+      <tr *ngFor="let delivery of detailedList; let ind= index"  class="tr">
+
+        <td class="td number">{{delivery.livraisonId}}</td>
+        <td class="td number"><a routerLink="/facture/detail/{{delivery.factureId}}">{{delivery.factureId}}</a></td>
+        <td class="td number">{{delivery.emplacementOrigine}}</td>
+        <td class="td number">{{delivery.numTelReception}}</td>
+        <td class="td number" *ngIf="delivery.dateEnvoi==null"><span  class="badge bg-warning">Pending..</span></td>
+        <td class="td number" *ngIf="delivery.dateEnvoi!=null">{{delivery.dateEnvoi}}</td>
+        <td class="td number">{{delivery.dateLivraisonPrevu}}</td>
+        <td class="td number" *ngIf="delivery.dateLivraison==null"><span  class="badge bg-warning">Pending..</span></td>
+        <td class="td number" *ngIf="delivery.dateLivraison!=null">{{delivery.dateLivraison}}</td>
+        <td class="td number" *ngIf="delivery.typeLivraison==1">Basique</td>
+        <td class="td number" *ngIf="delivery.typeLivraison==2">Enlevement Inclus</td>
+        <td class="td number" *ngIf="delivery.typeLivraison==3">Urgente</td>
+        <td class="td number">{{delivery.adresseLivraison}}</td>
+        <td class="td number" style="color:red; font-weight: 700" *ngIf="delivery.etatLivraison==-1"><span  class="badge bg-danger">Canceled</span></td>
+        <td class="td number" style="color:green; font-weight: 700" *ngIf="delivery.etatLivraison==0"><span  class="badge bg-success">Confirmed</span></td>
+        <td class="td number" style="display:flex">
+          <div *ngIf="delivery.dateEnvoi==null && delivery.etatLivraison!=-1">
+            <button  type="button" class="btn btn-success" id="modal_btn" (click)="displayModal(delivery.livraisonId)" style="font-size:11px!important;">Assigner Livreur</button>
+          </div>
+          <div *ngIf="delivery.dateLivraison==null && delivery.dateEnvoi!=null && delivery.etatLivraison!=-1">
+            <button  type="button" class="btn btn-success" id="modal_btn" (click)="setShipped(delivery.livraisonId)" style="font-size:11px!important;">Changer Etat à livrée</button>
+          </div>
+          <div *ngIf="delivery.etatLivraison!=1">
+            <button  type="button" class="btn btn-danger" (click)="cancelDelivery(delivery.livraisonId)" style="font-size:11px!important;">Cancel Delivery</button>
+          </div>
+        </td>
+
+        <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+        <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+        <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+        -->
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+ <!-- Trigger the modal with a button -->
+
+ <!-- Modal -->
+ <div class="modal11" id="myModal11" role="dialog">
+   <div class="modal-dialog">
+
+     <!-- Modal content-->
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" (click)="closeModal()" id="close_btn">&times;</button>
+         <h4 class="modal-title">Modal Header</h4>
+       </div>
+       <div class="modal-body">
+          <!-- <input type="text" name="" id=""> -->
+          <form class="example-form" [formGroup]="Form">
+
+          <table>
+              <tr>
+                <td>
+                  <label for="nomLivreur">Livreur :</label>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width">
+                    <input name="nomLivreur" [(ngModel)]="livreur.nomLivreur" type="text" id="nomLivreur" formControlName="nomLivreur" placeholder="Entrer Le nom du livreur.." (keyup)="getSuggestions()" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{ option }}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-form-field><br>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="societeLivraison">Société de Livraison :</label>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" id="societeLivraison">
+                    <input name="societeLivraison" [(ngModel)]="livreur.societeLivraison" type="text" placeholder="Entrez le nom de l'entreprise.." formControlName="societeLivraison" aria-label="Number" matInput [formControl]="illControl">
+                  </mat-form-field><br>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="secteur">Secteur :</label>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" id="secteur">
+                    <input name="secteur" [(ngModel)]="livreur.secteur" type="text" placeholder="Entrez le secteur géographique.." formControlName="secteur" aria-label="Number" matInput [formControl]="">
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <label for="numTel">Numéro téléphone :</label>
+                </td>
+                <td>
+                  <mat-form-field class="example-full-width" id="numTel">
+                    <input name="numTel" [(ngModel)]="livreur.numLivreur" type="text" placeholder="Entrez le Numéro du livreur.." formControlName="numLivreur" aria-label="Number" matInput [formControl]="numControl">
+                  </mat-form-field>
+                </td>
+              </tr>
+              <tr *ngIf="dateAjout!=null">
+                <td colspan="2">Travaille depuis {{dateAjout}}</td>
+              </tr>
+          </table>
+
+          </form>
+       </div>
+       <div class="modal-footer1">
+        <button type="button" class="reset" data-dismiss="modal">Reset</button>
+         <button type="button" class="save" data-dismiss="modal" (click)="sendData()">Save</button>
+       </div>
+     </div>
+
+   </div>
+ </div>
+
+</div>

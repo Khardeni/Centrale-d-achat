@@ -1,0 +1,26 @@
+<h1>List Users</h1>
+
+<table   class="table">
+  <tr class="tr">
+    <th class="td number">Username</th>
+    <th class="td number">First Name</th>
+    <th class="td number">Last Name</th>
+    <th class="td number">CIN</th>
+    <th class="td number">Email</th>
+    <th class="td number">Phone</th>
+    <th class="td number" style="color: green;">Give Role</th>
+    <th class="td number" style="color: red;">Delete</th>
+  </tr>
+  <tr *ngFor="let user of listUsers"   class="tr">
+
+    <td class="td number">{{user.userName}}</td>
+    <td class="td number">{{user.userFirstName}}</td>
+    <td class="td number">{{user.userLastName}}</td>
+    <td class="td number">{{user.userCin}}</td>
+    <td class="td number">{{user.userEmail}}</td>
+    <td class="td number">{{user.userPhone}}</td>
+    <td></td>
+    <td><button class="td btn" (click)="deleteUser(user.userName)">Supprimer</button></td>
+  </tr>
+</table>
+

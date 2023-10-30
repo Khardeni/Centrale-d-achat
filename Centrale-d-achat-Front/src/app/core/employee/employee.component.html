@@ -1,0 +1,22 @@
+<h1>List Factures</h1>
+<a routerLink="/employee/add/1/1">add new</a>
+<table border='1' class="table">
+  <tr class="tr">
+    <td class="td number">Id</td>
+    <td class="td number">salary</td>
+    <td class="td number">job Title</td>
+    <td class="td number">total Worked Hours</td>
+    <td class="td number"></td>
+    <td class="td number"></td>
+  </tr>
+  <tr *ngFor="let emp of listEmployee let ind= index"  class="tr">
+
+    <td class="td number">{{emp.employeeId}}</td>
+    <td class="td number">{{emp.salary}}</td>
+    <td class="td number">{{emp.jobTitle}}</td>
+    <td class="td number">{{emp.totalWorkedHours}} Hours</td>
+
+    <td class="td number"><button (click)="editEmp(emp.employeeId)">Modifier</button></td>
+    <td class="td number"><button (click)="deleteEmp(emp.employeeId)">Supprimer</button></td>
+  </tr>
+</table>

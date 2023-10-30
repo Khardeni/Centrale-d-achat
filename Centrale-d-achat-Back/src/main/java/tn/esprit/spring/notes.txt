@@ -1,0 +1,12 @@
+//livraison à partir de plus proche emplacement selon livraison
+//mailing
+//pdf + template
+
+    String adliv = livraison.getAdresseLivraison();
+switch (adliv) :
+    case adliv.contains("ben arous"):
+        Emplacement emplacement =
+
+
+//alexa168@
+//Slashff@4SAE3

@@ -1,0 +1,40 @@
+
+
+<!-- <div *ngFor="" -->
+<div class="cart-box">
+  <h1 style="margin-left: 10%;">
+    Shopping Cart
+  </h1>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Categorie</th>
+        <th scope="col">Marque</th>
+        <th scope="col">Nom d'Article</th>
+        <th scope="col">Quantite</th>
+        <th scope="col">Like Count</th>
+        <th scope="col">Prix Unitaire</th>
+        <th scope="col">Prix Total</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let commande of lplist; let i = index;">
+        <th scope="row">
+          <mat-checkbox [checked]="commande.status==-1" class="example-margin" (change)="changeStatus(commande.lignePanierId,commande)"></mat-checkbox>
+        </th>
+        <td>{{commande.categorie}}</td>
+        <td>{{commande.marque}}</td>
+        <td>{{commande.nomArticle}}</td>
+        <td>{{commande.quantite}}</td>
+        <td>{{commande.likeCount}}</td>
+        <td>{{commande.prixArticle.toFixed(2)}}{{symbol}}</td>
+        <td>{{(commande.prixArticle*commande.quantite).toFixed(2)}}{{symbol}}</td>
+        <td><img src="{{commande.image}}" height="60" width="90"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <p style="padding-left:70%;" class="total_price">Prix total : <b>{{total.toFixed(2)}}{{symbol}}</b></p>
+<button class="val-btn btn btn-primary" routerLink="/shop/checkout">Validate Order</button>

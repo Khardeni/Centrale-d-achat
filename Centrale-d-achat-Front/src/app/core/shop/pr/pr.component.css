@@ -1,0 +1,135 @@
+/* Product container styles */
+.product_container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.card-body{
+  padding:0;
+}
+
+.product-box{
+  margin:auto;
+  width:80%;
+  padding-top:80px;
+}
+
+/* Product box styles */
+.box {
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.box:hover {
+  transform: translateY(-5px);
+}
+
+/* Product image styles */
+.img-box {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product detail box styles */
+.detail-box {
+  padding: 10px;
+}
+
+.detail-box .text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-box .h6 {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.detail-box h5 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f0932b;
+  margin-top: 10px;
+}
+
+.detail-box h5 span {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.detail-box .like {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.detail-box .star_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.detail-box .fa-star {
+  color: #f0932b;
+  font-size: 14px;
+}
+
+/* Button box styles */
+.btn-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0932b;
+  padding: 10px;
+}
+
+.a_href {
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+}
+
+.a_href:hover {
+  color: #333;
+}
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.quantite-input{
+  width:50px;
+  margin-left: 2px;
+  margin-right: 2px;
+}

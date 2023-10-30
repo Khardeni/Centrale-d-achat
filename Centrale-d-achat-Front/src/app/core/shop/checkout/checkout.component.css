@@ -1,0 +1,70 @@
+.checkout_container{
+  padding-left:10%;
+}
+.first_input{
+  width:116%;
+  /* background-color: brown; */
+  height:100%;
+  /* margin:-16px; */
+}
+.form{
+  padding-top: 25px;
+}
+.stepper_back_btn{
+  margin-left:45px !important;
+  margin-right: 80px!important;
+}
+
+::ng-deep .mat-mdc-select {
+  background-color:rgb(238, 238, 238)!important;
+  min-height: 20px!important;
+  min-width: 350px!important;
+}
+
+::ng-deep .mat-mdc-select-trigger {
+  /* min-height: 20px!important; */
+  /* min-width: 350px!important; */
+}
+
+::ng-deep .mat-mdc-form-field-icon-suffix{
+  margin-left:-51px!important;
+}
+
+::ng-deep .mdc-menu-surface.mat-mdc-select-panel {
+  width: 350px!important;
+}
+
+::ng-deep .mat-mdc-form-field-infix {
+  min-height: 20px!important;
+  min-width: 350px!important;
+  background-color: rgb(238, 238, 238)!important;
+  padding:10px;
+  /* padding:0!important; */
+}
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled){
+  background-color: rgb(238, 238, 238)!important;
+  padding:10px;
+}
+.dependent{
+  visibility: hidden;
+  height: 0;
+}
+::ng-deep .mdc-text-field__input{
+  padding:10px;
+}
+::ng-deep .mdc-text-field {
+  padding: 0!important;
+}
+
+
+.stepper_btn{
+  background-color: #fcac18;
+  width: 7%;
+  border-radius: 10px;
+  font-family: Exo, sans-serif!important;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 40px;
+  min-width: 100px;
+}

@@ -1,0 +1,99 @@
+<h1 style="color: black;">List Des Employees</h1>
+
+<!-- Large modal -->
+<button type="button" class="btn btn-primary" (click)="displayModal()">Add Employee</button>
+
+<div class="modal" tabindex="-1" role="dialog" id="aemodal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+        <!-- <input type="text" [(ngModel)]="emp.jobTitle" placeholder="Job Title">
+        <select [(ngModel)]="emp.userName">
+          <option [ngValue]="null" disabled>Select User</option>
+          <option *ngFor="let user of usersList" [ngValue]="user.userName">{{user.userFirstName}}&nbsp;{{user.userLastName}}</option>
+        </select>
+
+        <input type="text" [(ngModel)]="emp.salary" placeholder="Salary"> -->
+
+
+
+        <label for="userName" id="labelusername">User :</label><br>
+        <mat-form-field id="selectusername" appearance="fill" style="width:400px; margin-right:2%;">
+          <mat-label>Toppings</mat-label>
+          <mat-select [formControl]="toppings">
+            <mat-option *ngFor="let user of usersList" [value]="user.userName">{{user.userFirstName}}&nbsp;{{user.userLastName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <form class="form-container"  style="color:black;">
+          <div class="form-group" style="padding-bottom:5%;">
+            <label for="jobTitle" >Job Title :</label>
+            <input type="text" [(ngModel)]="emp.jobTitle" name="jobTitle" id="jobTitle" class="form-control" placeholder="Job Title">
+          </div>
+
+          <div class="form-group">
+            <label for="salary">Salary :</label>
+            <input type="text" [(ngModel)]="emp.salary" name="salary" id="salary" class="form-control" placeholder="Entrez l'adresse de l'emplacement">
+          </div>
+
+
+          <!-- <button type="submit" (click)="sendData()" class="btn btn-primary">Enregistrer</button> -->
+
+
+
+
+
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button *ngIf="modalChoice==0" type="button" class="btn btn-primary" (click)="addEmployee()">Add Employee</button>
+          <button *ngIf="modalChoice==1" type="button" class="btn btn-primary" (click)="updateEmp(emp)">Edit Employee</button>
+          <button type="button" class="btn btn-secondary" (click)="closeModal()" data-dismiss="modal">Close</button>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+  <div class="card flex-fill">
+    <div class="card-header">
+
+      <h5 class="card-title mb-0">Latest Projects</h5>
+    </div>
+    <table class="table-hover my-0">
+      <tr class="tr">
+        <td class="td number">Id</td>
+        <td class="td number">Name</td>
+        <td class="td number">salary</td>
+        <td class="td number">job Title</td>
+        <td class="td number">total Worked Hours</td>
+        <td class="td number"></td>
+        <td class="td number"></td>
+      </tr>
+      <tr *ngFor="let emp of listEmployees let ind= index"  class="tr">
+
+        <td class="td number">{{emp.employeeId}}</td>
+        <td class="td number"><a routerLink="/employee/performance/{{emp.employeeId}}">{{emp.fullName}}</a></td>
+        <td class="td number">{{emp.salary.toFixed(2)}}</td>
+        <td class="td number">{{emp.jobTitle}}</td>
+        <td class="td number">{{emp.totalWorkedHours}} Hours</td>
+
+        <td class="td number"><button class="btn btn-warning" (click)="editEmp(emp.employeeId,emp)">Modifier</button></td>
+        <td class="td number"><button class="btn btn-danger" (click)="deleteEmp(emp.employeeId)">Supprimer</button></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>

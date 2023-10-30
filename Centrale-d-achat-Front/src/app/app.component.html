@@ -1,0 +1,99 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium" bdColor="rgba(32, 55, 77, 0.85)" style="color:white!important">
+  <p class="loading" ><Strong>Please wait..<br>Do not shutdown!</Strong></p>
+</ngx-spinner>
+<div class="wrapper">
+
+<div *ngIf="userType=='admin' && monitoringMode==0" class="nav">
+  <app-nav></app-nav>
+</div>
+<div *ngIf="userType=='admin' && monitoringMode==0" class="sidebar">
+  <app-sidebar></app-sidebar>
+</div>
+<div *ngIf="monitoringMode!=0" class="body body_reporting">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="userType=='admin' && monitoringMode==0" id="body_admin" class="body body_admin main">
+  <router-outlet></router-outlet>
+</div>
+<div *ngIf="userType=='user'" class="body_user">
+  <router-outlet></router-outlet>
+</div>
+
+</div>
+  <!--
+<div class="body">
+    <h1>text</h1>
+  <!--<form #userForm="ngForm" (ngSubmit)="onSave(userForm.value,userForm.valid)" class="form">
+    <table border='1' class="form-table">
+      <tr>
+        <td>Name</td>
+        <td>
+          <input name="id" type="hidden" [(ngModel)]="id" />
+          <input name="name" type="text" required [(ngModel)]="name" autocomplete="off" />
+        </td>
+      </tr>
+      <tr>
+        <td>Priority</td>
+        <td><input name="priority" required type="text" [(ngModel)]="priority" autocomplete="off" /></td>
+      </tr>
+      <tr>
+        <td>Term</td>
+        <td><input name="term" required type="text" [(ngModel)]="term"  autocomplete="off"/></td>
+        <input name="done" type="hidden" [(ngModel)]="done" />
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="Submit" class="submit-btn">
+        </td>
+      </tr>
+    </table>
+  </form>-->
+<!--
+
+  <table border='1' class="todos">
+    <tr class="tr">
+      <td class="td number">Id</td>
+      <td class="td name">Name</td>
+      <td class="td number">Priority</td>
+      <td class="td number">Term</td>
+      <td class="td number">Status</td>
+      <td class="td btn"></td>
+      <td class="td btn"></td>
+    </tr>
+    <tr *ngFor="let kk of Repdata; let ind= index"  class="tr">
+
+      <td class="td number">{{ind + 1}}</td>
+      <td class="name">{{kk.name}}</td>
+      <td class="td number">{{kk.priority}}</td>
+      <td class="td number">{{kk.term}}</td>
+      <td class="td number">{{kk.done}}</td>
+
+      <td class="td btn"><a (click)="edit (kk)" style="color: rgb(7, 9, 76)">Edit</a></td>
+      <td class="td btn"><a (click)="ChangeStatus (kk)" style="color: rgb(7, 9, 76)">Done</a></td>
+      <td class="td btn"><a (click)="delete (kk._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+
+    </tr>
+  </table>
+</div>
+-->
+<!--
+<div class="area" >
+  <ul class="circles">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+  </ul>
+</div >
+-->
+<script>
+  feather.replace()
+</script>

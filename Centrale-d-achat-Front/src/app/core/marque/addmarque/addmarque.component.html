@@ -1,0 +1,11 @@
+<div class="form-container">
+  <form (ngSubmit)="addMarque()">
+      <h1>Add a new marque</h1>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="marque.nomMarque" required>
+      </div>
+      
+      <button type="submit">Add</button>
+  </form>
+</div>

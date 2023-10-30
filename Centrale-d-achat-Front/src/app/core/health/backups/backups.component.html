@@ -1,0 +1,17 @@
+
+<table border='1' class="table">
+  <thead>
+    <tr class="tr">
+      <td class="td number">Available Backups</td>
+      <td class="td btn"></td>
+    </tr>
+  </thead>
+  <tr *ngFor="let backup of listBackups; let ind= index"  class="tr">
+    <td class="td number">{{backup}}</td>
+    <td class="td btn"><button (click)="recoverDatabase(backup)">Recover</button></td>
+    <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+    <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+    <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+    -->
+  </tr>
+</table>

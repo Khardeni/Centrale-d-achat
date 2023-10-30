@@ -1,0 +1,21 @@
+<h1>List Categorie</h1>
+<a [routerLink]="['/add-categorie']">
+  <fa-icon [icon]=plusIcon style="padding-left:100px; font-size: 36px;"></fa-icon>
+
+</a>
+<table border='1' class="table">
+  <tr class="tr">
+    <td class="td number">Id</td>
+    <td class="td number">Nom</td>
+    <td class="td number">Actions</td>
+  </tr>
+  <tr *ngFor="let categorie of listCategorie; let ind= index"  class="tr" (click)="selectedCategorie = categorie">
+    <td class="td number">{{categorie.categorieArticleId}}</td>
+    <td class="td number">{{categorie.nomCategorie}}</td>
+    <td class="td number"><button class="update-btn"  [routerLink]="['/categories/update-categorie', categorie.categorieArticleId]">Update</button>
+    <a (click)="deleteCategorie(categorie)" class="delete-btn">Delete</a></td>
+  </tr>
+
+</table>
+
+

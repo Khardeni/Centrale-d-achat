@@ -1,0 +1,91 @@
+<!-- <h1>List Paiements</h1>
+<table border='1' class="table">
+  <tr class="tr">
+    <td class="td number">Paiement N</td>
+    <td class="td number">Facture N</td>
+    <td class="td number">Customer Name</td>
+    <td class="td number">Méthode</td>
+    <td class="td number">Card Number</td>
+    <td class="td number">Expiration Date</td>
+    <td class="td number">CVV</td>
+    <td class="td number">Etat</td>
+    <td class="td number">Date Paiement</td>
+    <td class="td btn"></td>
+    <td class="td btn"></td>
+  </tr>
+  <tr *ngFor="let paiement of listPaiements; let ind= index"  class="tr">
+
+    <td class="td number">{{paiement.paiementId}}</td>
+    <td class="td number"><a routerLink="/facture/detail/{{paiement.factureId}}">{{paiement.factureId}}</a></td>
+    <td class="td number">{{paiement.clientName}}</td>
+    <td class="td number" *ngIf="paiement.methodePaiement==1">Cash</td>
+    <td class="td number" *ngIf="paiement.methodePaiement==2">Visa ou MasterCard</td>
+    <td class="td number" *ngIf="paiement.methodePaiement==3">Paypal</td>
+    <td class="td number" *ngIf="paiement.methodePaiement==4">D-17</td>
+    <td class="td number">{{paiement.cardNumber}}</td>
+    <td class="td number">{{paiement.expirationDate}}</td>
+    <td class="td number">{{paiement.cvv}}</td>
+    <td class="td number" *ngIf="paiement.etatPaiement==1">Réglée</td>
+    <td class="td number" style="color:red; font-weight: 700" *ngIf="paiement.etatPaiement==0">Manquant</td>
+    <td class="td number">{{paiement.datePaiement}}</td>
+    <td class="td btn"></td>
+    <td class="td btn"></td> -->
+
+    <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+    <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+    <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+    -->
+  <!-- </tr>
+</table> -->
+
+
+<h1>List Payements</h1>
+<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+  <div class="card flex-fill">
+    <div class="card-header">
+
+      <h5 class="card-title mb-0">Latest Projects</h5>
+    </div>
+    <table class="table table-hover my-0">
+      <thead>
+        <tr>
+          <td class="td number">Paiement N</td>
+          <td class="td number">Facture N</td>
+          <td class="td number">Customer Name</td>
+          <td class="td number">Méthode</td>
+          <td class="td number">Card Number</td>
+          <td class="td number">Expiration Date</td>
+          <td class="td number">CVV</td>
+          <td class="td number">Etat</td>
+          <td class="td number">Date Paiement</td>
+          <td class="td number"></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paiement of listPaiements; let ind= index"  class="tr">
+          <td class="td number">{{paiement.paiementId}}</td>
+          <td class="td number"><a routerLink="/facture/detail/{{paiement.factureId}}">{{paiement.factureId}}</a></td>
+          <td class="td number">{{paiement.clientName}}</td>
+          <td class="td number" *ngIf="paiement.methodePaiement==1">Cash</td>
+          <td class="td number" *ngIf="paiement.methodePaiement==2">Visa ou MasterCard</td>
+          <td class="td number" *ngIf="paiement.methodePaiement==3">Paypal</td>
+          <td class="td number" *ngIf="paiement.methodePaiement==4">D-17</td>
+
+                  <!-- To test method of payments -->
+          <td class="td number" *ngIf="paiement.methodePaiement==2">{{paiement.cardNumber}}</td>
+          <td class="td number" *ngIf="paiement.methodePaiement!=2"><span class="badge bg-secondary">#</span></td>
+          <td class="td number" *ngIf="paiement.methodePaiement==2">{{paiement.expirationDate}}</td>
+          <td class="td number" *ngIf="paiement.methodePaiement!=2"><span class="badge bg-secondary">#</span></td>
+          <td class="td number" *ngIf="paiement.methodePaiement==2">{{paiement.cvv}}</td>
+          <td class="td number" *ngIf="paiement.methodePaiement!=2"><span class="badge bg-secondary">#</span></td>
+                          <!-- END -->
+          <td class="td number" *ngIf="paiement.etatPaiement==1"><span class="badge bg-success">Réglée</span></td>
+          <td class="td number" *ngIf="paiement.etatPaiement==0"><span class="badge bg-danger">Manquant</span></td>
+          <td class="td number" *ngIf="paiement.etatPaiement==-1"><span class="badge bg-primary">Annulé</span></td>
+          <td class="td number">{{paiement.datePaiement}}</td>
+          <td class="td number"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+/*
+.header_container{
+  padding-left:320px!important;
+  padding-top: 13px;
+  padding-bottom: 5px;
+  display: inline-block;
+  width: 100% !important;
+  line-height: 20px!important;
+  white-space: nowrap;
+  /* overflow: hidden; */
+/* }
+.left_side{
+  display: inline-block;
+  width: 100%;
+  left: 64%;
+  position: absolute;
+}
+.help_txt{
+  padding-left: 2%;
+  display:inline-block;
+}
+.settings_icon{
+  display: inline-block;
+  padding-left:8%;
+}
+.search_btn{
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+} */
+
+
+::ng-deep * .nav{
+  display: block!important;
+}
+
+
+::ng-deep * .main{
+  background: #f5f7fb;
+  }
+
+  .sidebar-toggle{
+    margin-left : 20%;
+  }
+
+
+  .dropdown-menu{
+    position: fixed!important;
+    right:2%;
+  }

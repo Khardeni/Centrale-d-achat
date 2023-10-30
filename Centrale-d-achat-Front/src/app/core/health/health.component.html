@@ -1,0 +1,245 @@
+
+
+<div class="parent">
+  <div class="div1"> E-Spare App Monitoring<br>
+    <button class="btn-oc" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Open Menu</button>
+  </div>
+  <div class="div2">
+    <a routerLink="[/dashboard]"><img src="../../assets/images/ha.jpg" alt="" style="height: 100px;width: 380px;"></a>
+  </div>
+  </div>
+<!-- Modal -->
+<div class="modal" id="exampleModal" tabindex="1" role="dialog" aria-bs-labelledby="exampleModalLabel" aria-bs-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">RAPPORT DE REPLICATION DES DONNEES</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-bs-label="Close">
+          <span aria-bs-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngFor="let rep of listReplication; let i = index">
+          <p>{{rep}}</p>
+          <button class="btn-oc" *ngIf="i>0" (click)="deleteLivreur(rep)">Delete</button>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-oc btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LogsModal -->
+<div class="modal" id="logsModal" tabindex="1" role="dialog" aria-bs-labelledby="logsModalLabel" aria-bs-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="logsModalLabel">LOGS</h5>
+        <button type="button" class="close" data-bs-dismiss="modal" aria-bs-label="Close">
+          <span aria-bs-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body scroll">
+        <p *ngFor="let ch of listLogs">{{ch}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-oc btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Content Row -->
+<div class="row">
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                          Overall Status</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">mana3rech</div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-success shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                        Invoice Mismatch</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">{{listFactsize}}</div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Earnings (Monthly) Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-info shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                      </div>
+                      <div class="row no-gutters align-items-center">
+                          <div class="col-auto">
+                              <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
+                          </div>
+                          <div class="col">
+                              <div class="progress progress-sm mr-2">
+                                  <div class="progress-bar bg-info" role="progressbar"
+                                      style="width: 50%" aria-valuenow="50" aria-valuemin="0"
+                                      aria-valuemax="100"></div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!-- Pending Requests Card Example -->
+  <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-warning shadow h-100 py-2">
+          <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                  <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                          Data Replication</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800"><button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">Check Report</button></div>
+                  </div>
+                  <div class="col-auto">
+                      <i class="fas fa-comments fa-2x text-gray-300"></i>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title octitle" id="offcanvasWithBothOptionsLabel">Monitoring Menu</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body ocbody">
+    <p><b>You can survey the trace logs, check the database health, Check every table independently</b></p>
+    <button class="btn btn-log" (click)="loadLogs(1)" data-bs-toggle="modal" data-bs-target="#logsModal" >Authorization Logs</button>
+    <button class="btn btn-log" (click)="loadLogs(2)" data-bs-toggle="modal" data-bs-target="#logsModal" >Server-Side Logs</button>
+    <button class="btn btn-log" (click)="loadLogs(3)" data-bs-toggle="modal" data-bs-target="#logsModal" >Path Logs</button>
+    <button class="btn btn-log" (click)="loadLogs(4)" data-bs-toggle="modal" data-bs-target="#logsModal" >Logs</button>
+    <button class="btn btn-h">Database Health</button>
+    <button class="btn btn-h">Invoice Data Health</button>
+  </div>
+</div>
+<!-- Content Row -->
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div id="chart" class="chart">
+        <apx-chart
+          [series]="authChartOptions.series"
+          [chart]="authChartOptions.chart"
+          [markers]="authChartOptions.markers"
+          [stroke]="authChartOptions.stroke"
+          [dataLabels]="authChartOptions.dataLabels"
+          [title]="authChartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+    <div class="col">
+      <div id="pathchart" class="chart">
+        <apx-chart
+          [series]="pathChartOptions.series"
+          [chart]="pathChartOptions.chart"
+          [markers]="pathChartOptions.markers"
+          [stroke]="pathChartOptions.stroke"
+          [dataLabels]="pathChartOptions.dataLabels"
+          [title]="pathChartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+      <div id="backchart">
+        <apx-chart
+          [series]="backChartOptions.series"
+          [chart]="backChartOptions.chart"
+          [markers]="backChartOptions.markers"
+          [stroke]="backChartOptions.stroke"
+          [dataLabels]="backChartOptions.dataLabels"
+          [title]="backChartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+    <div class="col">
+      <div id="uchart">
+        <apx-chart
+          [series]="uChartOptions.series"
+          [chart]="uChartOptions.chart"
+          [markers]="uChartOptions.markers"
+          [stroke]="uChartOptions.stroke"
+          [dataLabels]="uChartOptions.dataLabels"
+          [title]="uChartOptions.title"
+        ></apx-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Error Simulator  -->
+
+<div style="width:80%;height:120px;margin:auto;">
+  <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+          <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                  <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                      Error Simulator</div>
+                  <div class="h5 mb-0 font-weight-bold text-gray-800 center-buttons">
+                    <button class="btn-oc" (click)="simulate404()">Path Error (404)</button>
+                    <button class="btn-oc" (click)="simulate500()">Backend Error (500)</button>
+                    <button class="btn-oc" (click)="simulate401()">Unauthorized Error (401)</button>
+                    <button class="btn-oc" (click)="simulatex()">Unknown Error(x)</button>
+                  </div>
+              </div>
+              <div class="col-auto">
+                  <i class="fas fa-calendar fa-2x text-gray-300"></i>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<!-- Error Simulator End  -->
+
+
+<script>
+</script>

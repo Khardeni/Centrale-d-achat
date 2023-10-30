@@ -1,0 +1,21 @@
+form {
+    margin: auto;
+    width: 50%;
+  }
+  form {
+    margin: auto;
+    width: 50%;
+  }
+  label {
+    color: black;
+  }
+  h1{
+    color: black;
+  }
+  .form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  

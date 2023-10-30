@@ -1,0 +1,47 @@
+<h1 style="color: black;">List Performances</h1>
+
+<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+  <div class="card flex-fill">
+    <div class="card-header">
+
+      <h5 class="card-title mb-0">Latest Projects</h5>
+    </div>
+    <table class="table-hover my-0">
+      <tr class="tr">
+        <td class="td number">Id</td>
+        <td class="td number">Date performance</td>
+        <td class="td number">Rating</td>
+        <!-- <td class="td number"></td>
+        <td class="td number"></td> -->
+      </tr>
+      <tr *ngFor="let perf of listPerformances let ind= index"  class="tr">
+
+        <td class="td number">{{perf.performanceId}}</td>
+        <td class="td number">{{perf.performanceDate}}</td>
+        <td class="td number" style="display: inline-flex; color:rgb(252, 244, 19)"><div *ngFor="let i of createRange(perf.performanceRating)"><fa-icon [icon]=star style="padding-right:5px;"></fa-icon></div></td>
+        <td class="td number"><fa-icon [icon]=deleteIcon (click)="deletePerf(perf.performanceId)"></fa-icon></td>
+        <!-- <td class="td number"><button class="btn btn-warning" (click)="editEmp(emp.employeeId,emp)">Modifier</button></td> -->
+        <!-- <td class="td number"><button class="btn btn-danger" (click)="deleteEmp(emp.employeeId)">Supprimer</button></td> -->
+      </tr>
+      <tr>
+        <td class="td number">
+          <fa-icon [icon]=star id="star1" style="padding-right:5px;" (click)="hover1()"></fa-icon>
+          <fa-icon [icon]=star id="star2" style="padding-right:5px;" (click)="hover2()"></fa-icon>
+          <fa-icon [icon]=star id="star3" style="padding-right:5px;" (click)="hover3()"></fa-icon>
+          <fa-icon [icon]=star id="star4" style="padding-right:5px;" (click)="hover4()"></fa-icon>
+          <fa-icon [icon]=star id="star5" style="padding-right:5px;" (click)="hover5()"></fa-icon>
+        </td>
+        <td class="td number">
+          <fa-icon [icon]=saveIcon (click)="save()"></fa-icon>
+        </td>
+        <td class="td number"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<script>
+$('#myModal').on('shown.bs.modal', function () {
+  $('#myInput').trigger('focus')
+})
+</script>

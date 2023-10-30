@@ -1,0 +1,40 @@
+<div mat-dialog-title>
+    <h1>impot Form</h1>
+</div>
+<form [formGroup]="impForm" (ngSubmit)="onFormSubmit()">
+    <div mat-dialog-content class="content">
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Impot Name</mat-label>
+                <input matInput type="text" name="titreImpot" [(ngModel)]="initialData.impot.titreImpot" placeholder="Nom impot" formControlName="titreImpot">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>taux</mat-label>
+                <input matInput placeholder="Rate" name="tauxImpot" [(ngModel)]="initialData.impot.tauxImpot" formControlName="tauxImpot">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-radio-group aria-label="Select an option" name="isActive" [(ngModel)]="initialData.impot.isActive" formControlName="isActive">
+                <mat-label><b>State</b></mat-label>
+                <mat-radio-button value="true">active</mat-radio-button>
+                <mat-radio-button value="false">inactive</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>typeImpot</mat-label>
+                <mat-select formControlName="typeImpot" name="typeImpot" [(ngModel)]="initialData.impot.typeImpot">
+                    <mat-option *ngFor="let val of typeImp" [value]="val">{{val}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+          
+        </div>
+    </div>
+    <div mat-dialog-actions class="action">
+        <button class="labelclass" mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+        <button class="labelclass" mat-raised-button color="primary" type="submit" *ngIf="datad==null">Save</button>
+        <button class="labelclass" mat-raised-button color="primary" type="submit" *ngIf="datad!=null">Update</button>
+    </div>
+</form>

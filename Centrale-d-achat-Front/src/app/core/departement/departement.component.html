@@ -1,0 +1,40 @@
+<h1 style="color: black;">List Departements</h1>
+<div class="col-12 col-lg-8 col-xxl-9 d-flex">
+  <div class="card flex-fill">
+    <div class="card-header">
+
+      <h5 class="card-title mb-0">Latest Projects</h5>
+    </div>
+    <table class="table table-hover my-0">
+      <thead>
+      <tr class="tr">
+        <td class="td number">Id</td>
+        <td class="td number">Departement</td>
+        <td class="td number"></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let dp of listDepartement; let ind= index"  class="tr">
+
+        <td class="td number">{{dp.departmentId}}</td>
+        <td class="td number"><input type="text" class="disabled" id="{{dp.departmentId}}"  [id]="dp.departmentId" name="departmentName" [value]="dp.departmentName" disabled></td>
+
+        <td class="td number"><button class="btn btn-warning" style="margin-right:5%;" (click)="editName(dp.departmentId)">Modifier</button>
+        <button class="btn btn-danger" (click)="deletedep(dp.departmentId)">Supprimer</button></td>
+        <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+        <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+        <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+        -->
+      </tr>
+      <tr>
+
+
+        <td class="td number"><input type="hidden" name="departmentId" [(ngModel)]="dp.departmentId"></td>
+        <td class="td number"><input type="text" name="departmentName" [(ngModel)]="dp.departmentName"></td>
+
+        <td class="td number"><button class="btn btn_success" (click)="submitNewDp()">Ajouter</button></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+</div>

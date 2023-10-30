@@ -1,0 +1,52 @@
+<h1>List Produit</h1>
+<div style="display:flex">
+  <a [routerLink]="['/produit/addproduit']"><fa-icon [icon]=plusIcon style="padding-left:100px; font-size: 36px;"></fa-icon><div class="sidenav_text" id="sidenav_text4"></div></a>
+  <a [routerLink]="['/categories']"><fa-icon [icon]=mixedIcon style="padding-left:100px; font-size: 36px;"></fa-icon>Categorie<div class="sidenav_text" id="sidenav_text4"></div></a>
+  <a [routerLink]="['/marques']"><fa-icon [icon]=mixedIcon style="padding-left:100px; font-size: 36px;"></fa-icon>Marque<div class="sidenav_text" id="sidenav_text4"></div></a>
+</div>
+<table border='1' class="table">
+  <tr class="tr">
+    <td class="td number">Id</td>
+    <td class="td number">Nom</td>
+    <td class="td number">prixHT</td>
+    <td class="td number">promotion</td>
+    <td class="td number">Seuil du Stock</td>
+    <td class="td number">Like Count</td>
+    <td class="td number">Image</td>
+    <td class="td number"></td>
+    <td class="td number"></td>
+  </tr>
+  <tr *ngFor="let produit of listProduits  | paginate: { itemsPerPage:4, currentPage: p,totalItems: listProduits.length }"  class="tr">
+
+    <td class="td number">{{produit.articleId}}</td>
+    <td class="td number">{{produit.nomArticle}}</td>
+
+    <td class="td number" *ngIf="produit.promotion==null">Non Soldée</td>
+    <td class="td number" *ngIf="produit.promotion!=null">{{produit.promotion}}</td>
+    <td class="td number">{{produit.seuilStock}}</td>
+    <td class="td number">{{produit.likeCount}}</td>
+    <td class="td number">{{produit.prixHT}}</td>
+    <td class="td number">
+      <img src="{{ produit.imagee }}" style="width: 50px; height: 50px;"></td>
+    <td class=" number"><button class="btn btn-success"  [routerLink]="['/produits/update/', produit.articleId]">Update</button></td>
+
+    <td class="td number"><a (click)="deleteProduit(produit)" class="delete-btn">Delete</a></td>
+
+
+
+
+
+
+
+
+    <!--<td class="td btn"><a (click)="edit (facture)" style="color: rgb(7, 9, 76)">Edit</a></td>
+    <td class="td btn"><a (click)="ChangeStatus (facture)" style="color: rgb(7, 9, 76)">Done</a></td>
+    <td class="td btn"><a (click)="delete (facture._id)" style="color: rgb(51, 7, 7) ">Delete</a> </td>
+    -->
+  </tr>
+</table>
+<button (click)="downloadCSV()">Download CSV</button>
+<div class="pagination">
+  <pagination-controls (pageChange)="p = $event" previousLabel="<" nextLabel=">" class="pagination"></pagination-controls>
+</div>
+

@@ -1,0 +1,241 @@
+
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="../../assets/images/fevicon/fevicon.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>E-Spare</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" src="../../assets/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <!-- <link src="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet"> -->
+
+  <!-- font awesome style -->
+  <link src="../../assets/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link src="../../assets/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link src="../../assets/css/responsive.css" rel="stylesheet" />
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              E-Spare
+            </span>
+          </a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class=""> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav  ">
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="/shop/home">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/about"> About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  routerLink="/shop/products">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="testimonial.html">Testimonial</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/shop/history/{{username}}">Historique</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+            </ul>
+            <div class="user_optio_box">
+
+              <select id="curch" formControlName="country" (click)="changeCurrency()">
+                <option [ngValue]="0" disabled>Currency</option>
+                <option *ngFor="let c of clist" [ngValue]="c.id" >{{c.name}}</option>
+              </select>
+
+              <a class="a_href" href="">
+                <i class="fa fa-user" (click)="logout()" aria-hidden="true"></i>
+              </a>
+              <a class="a_href" routerLink="/shop/panier">
+                <div class="count_panier" style="
+                position: absolute;
+                color:white;
+                background-color: rgb(45, 3, 3)!important;
+                border-radius:10px;
+                width: 20px;
+                margin-left:-5px;
+                margin-top:-10px;
+                padding-left: 5px;
+                height: 20px;">{{itemsincart}}</div>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section ">
+      <div class="slider_bg_box">
+        <img src="../../assets/images/slider-bg.jpg" alt="" style="height: 140%;width: 100%;position: absolute;z-index: 0;">
+      </div>
+      <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div id="carousel1" class="carousel-item active">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Welcome to our shop
+                    </h1>
+                    <div class="p">
+                      We are very glade for having you dear customers, We look always to be your first destination.
+                    </div>
+                    <div class="btn-box">
+                      <a class="a_href" href="" class="btn1">
+                        Contact Us
+                      </a>
+                      <a class="a_href" href="" class="btn2">
+                        About Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="carousel2" class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Diversification
+                    </h1>
+                    <div class="p">
+                      We will always provide for our valuable customers, lots of different parts and variety of brands.
+                    </div>
+                    <div class="btn-box">
+                      <a class="a_href" href="" class="btn1">
+                        Contact Us
+                      </a>
+                      <a class="a_href" href="" class="btn2">
+                        About Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="carousel3" class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      We SHIP Also!!
+                    </h1>
+                    <div class="p">
+                      While staying at home, We will ship your order to your front door house.
+                    </div>
+                    <div class="btn-box">
+                      <a class="a_href" href="" class="btn1">
+                        Contact Us
+                      </a>
+                      <a class="a_href" href="" class="btn2">
+                        About Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="carousel4" class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                         WHOLESALE also!
+                    </h1>
+                    <div class="p">
+                      Surprising huh? We provide our services not only for individuals, also for companies.
+                    </div>
+                    <div class="btn-box">
+                      <a class="a_href" href="" class="btn1">
+                        Contact Us
+                      </a>
+                      <a class="a_href" href="" class="btn2">
+                        About Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="carousel5" class="carousel-item">
+            <div class="container ">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="detail-box">
+                    <h1>
+                      Try it now!
+                    </h1>
+                    <div class="p">
+                      Check our products, certainly there will be something interesting.
+                    </div>
+                    <div class="btn-box">
+                      <a routerLink="/shop/products" class="a_href" href="" class="btn1">
+                        Check Out
+                      </a>
+                      <a class="a_href" href="" class="btn2">
+                        About Us
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <ol class="carousel-indicators">
+          <li data-target="#customCarousel1" (click)="carousel1()" id="carousel_indicator1" data-slide-to="0" class="active"></li>
+          <li data-target="#customCarousel1" (click)="carousel2()" id="carousel_indicator2" data-slide-to="1"></li>
+          <li data-target="#customCarousel1" (click)="carousel3()" id="carousel_indicator3" data-slide-to="2"></li>
+          <li data-target="#customCarousel1" (click)="carousel4()" id="carousel_indicator4" data-slide-to="3"></li>
+          <li data-target="#customCarousel1" (click)="carousel5()" id="carousel_indicator5" data-slide-to="4"></li>
+        </ol>
+      </div>
+
+    </section>
+    <!-- end slider section -->
+  </div>

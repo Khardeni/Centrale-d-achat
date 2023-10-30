@@ -1,0 +1,96 @@
+<div class="body">
+    <form class="form-horizontal">
+    <div class="row clearfix">
+    
+    <div class="col-lg-2 col-md-2 col-sm-4 col-
+    xs-5 form-control-label">
+    
+    <label for="first_name">Product Name</label>
+    
+    </div>
+    
+    <div class="col-lg-10 col-md-10 col-sm-8 col-
+    xs-7">
+    
+    <div class="form-group">
+    <div class="form-line">
+    <input name="nom_article" [(ngModel)]="produit.nomArticle" type="text" id="nom_article" class="form-
+    control" placeholder="Enter your first name">
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+    
+        
+        <label for="email_address_2">Categorie</label>
+        <select name="marque" [(ngModel)]="produit.categorieId" class="form-control">
+            <option value="" > Select category</option>
+            <option *ngFor="let cat of categories" [value]="cat.categorieArticleId">{{cat.nomCategorie}}</option> 
+        </select>
+        
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+    
+            <label for="email_address_2">Marque</label>
+            <select name="marque" [(ngModel)]="produit.marqueId" class="form-control">
+                <option value="" > Select Marque</option>
+                <option *ngFor="let marque of marques" [value]="marque.marqueId">{{marque.nomMarque}}</option> 
+            </select>
+        
+            
+            </div>
+    <div class="row clearfix">
+    
+    <div class="col-lg-2 col-md-2 col-sm-4 col-
+    xs-5 form-control-label">
+    
+    <label for="prix">Prix</label>
+    </div>
+    
+    <div class="col-lg-10 col-md-10 col-sm-8 col-xs-7">
+    
+    <div class="form-group">
+    <div class="form-line">
+    <input name="prix" [(ngModel)]="produit.prixHT" type="text" id="prix" class="form-control" placeholder="Enter your price here">
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="row clearfix">
+    
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+    
+    <label for="email_address_2">SeuilStock</label>
+    
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-8 col-8-xs-7">
+    
+    <div class="form-group">
+    <div class="form-line">
+    <input name="seuil" [(ngModel)]="produit.seuilStock" type="text" id="seuil" class="form-control" placeholder="Enter your Seuil ">
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    
+    <div class="row clearfix">
+    
+    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+    
+    
+    <div class="row clearfix">
+    
+    <div class="col-lg-offset-2 col-md-offset-2 col-sm-offset-4 col-xs-offset-5">
+    
+        <button type="button" (click)="updateProduit()">Update</button>
+    
+    
+    </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </div>

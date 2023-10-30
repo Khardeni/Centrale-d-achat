@@ -1,0 +1,20 @@
+<h1>List Marques</h1>
+<a [routerLink]="['/marques/add-marque']">
+  <fa-icon [icon]=plusIcon style="padding-left:100px; font-size: 36px;"></fa-icon>
+</a>
+<table border='1' class="table">
+  <tr class="tr">
+    <td class="td number">Id</td>
+    <td class="td number">Nom</td>
+    <td class="td number">Actions</td>
+  </tr>
+  <tr *ngFor="let marque of listMarque; let ind= index"  class="tr" (click)="selectedMarque = marque">
+    <td class="td number">{{marque.marqueId}}</td>
+    <td class="td number">{{marque.nomMarque}}</td>
+    <td class="td number"><button class="update-btn"  [routerLink]="['/marques/update-marque', marque.marqueId]">Update</button>
+      <a (click)="deleteMarque(marque)" class="delete-btn">Delete</a></td>
+  </tr>
+
+</table>
+
+

@@ -1,0 +1,23 @@
+<div class="all">
+
+  <div class="card" id="not-found" class="not_found">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Désolé</h5>
+      <p class="card-text">Aucun résultat n'est conforme a ce que vous cherchez, essayez d'utiliser une mot clé plus claire</p>
+      <!-- <button class="btn btn-primary"><a routerLink="/paiement">Acceuil</a></button> -->
+    </div>
+  </div>
+  <div class="card" *ngFor="let help of listHelp;">
+    <div class="card-header">
+
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{help.compName}}</h5>
+      <p class="card-text">{{help.description}}</p>
+      <button class="btn btn-primary"><a routerLink="{{help.routeToComponent}}">Visitez</a></button>
+    </div>
+  </div>
+</div>
